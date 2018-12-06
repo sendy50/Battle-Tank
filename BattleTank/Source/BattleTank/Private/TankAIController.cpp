@@ -15,6 +15,11 @@ void ATankAIController::BeginPlay() {
 
 }
 
+void ATankAIController::Tick(float DeltaSecond)
+{
+
+}
+
 ATank* ATankAIController::GetControlledTank() const {
 	return Cast<ATank>(GetPawn());
 }

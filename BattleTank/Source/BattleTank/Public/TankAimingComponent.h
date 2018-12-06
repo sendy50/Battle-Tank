@@ -7,6 +7,8 @@
 #include "TankAimingComponent.generated.h"
 
 
+class UTankbarrel;
+
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class BATTLETANK_API UTankAimingComponent : public UActorComponent
 {
@@ -21,6 +23,17 @@ protected:
 	virtual void BeginPlay() override;
 
 public:	
+	
+	void SetBarrelReference(UTankbarrel* BarrelToSet);
+
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+
+	void AimAt(FVector HitLocation, float LaunchSpeed);
+
+
+private:
+	UTankbarrel* Barrel = nullptr;
+
+	void MoveBarrelTowards(FVector AimDirection);
 };

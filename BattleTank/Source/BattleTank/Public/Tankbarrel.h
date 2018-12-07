@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS(meta = (BlueprintSpawnableComponent))
+UCLASS(meta = (BlueprintSpawnableComponent), hidecategories = ("Collision"))
 class BATTLETANK_API UTankbarrel : public UStaticMeshComponent
 {
 	GENERATED_BODY()
@@ -19,4 +19,10 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = Setup)
 	float MaxDegreePerSecond = 20;
+
+	UPROPERTY(EditAnywhere, Category = Setup)
+	float MaxElevationDegree = -30;
+
+	UPROPERTY(EditAnywhere, Category = Setup)
+	float MinElevationDegree = 0;
 }; 
